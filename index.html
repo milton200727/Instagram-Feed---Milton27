@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Feed</title>
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <link rel="stylesheet" href="styles.css"/>
+ 
+</head>
+<body>
+ 
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar bg-white px-4 py-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+ 
+      <!-- Logo IG -->
+      <a href="#" class="navbar-brand fw-bold fs-4">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+ 
+      <!-- Boton New Post -->
+      <div class="d-flex gap-2">
+ 
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newPostModal">
+          Create a new post
+        </button>
+ 
+        <!-- Dropdown -->
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="fas fa-cog"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Accesibility</a></li>
+            <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+            <li><hr class="dropdown-divider"/></li>
+            <li><a class="dropdown-item logout" href="#">Log out</a></li>
+          </ul>
+        </div>
+ 
+      </div>
+    </div>
+  </nav>
+ 
+  <!-- ===== ICONOS PARA CAMBIAR VISTA ===== -->
+  <div class="d-flex justify-content-center gap-3 my-3">
+    <button class="btn btn-outline-primary" onclick="showView('grid')">
+      <i class="fas fa-th"></i>
+    </button>
+    <button class="btn btn-outline-primary" onclick="showView('single')">
+      <i class="fas fa-square"></i>
+    </button>
+  </div>
+ 
+  <!-- ===== CONTENIDO ===== -->
+  <div class="container" style="max-width: 900px;">
+ 
+    <!-- ── VISTA GRID (3 fotos por fila) ── -->
+    <div id="view-grid" style="display: none; max-width: 900px; margin: 0 auto;">
+      <div class="row g-2">
+ 
+        <!-- Foto 1 -->
+        <div class="col-6 col-md-4">
+          <img src="https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg" class="foto-grid"
+               data-bs-toggle="modal" data-bs-target="#modal1"/>
+        </div>
+ 
+        <!-- Foto 2 -->
+        <div class="col-6 col-md-4">
+          <img src="https://images.pexels.com/photos/2788482/pexels-photo-2788482.jpeg" class="foto-grid"
+               data-bs-toggle="modal" data-bs-target="#modal2"/>
+        </div>
+ 
+        <!-- Foto 3 -->
+        <div class="col-6 col-md-4">
+          <img src="https://images.pexels.com/photos/971011/pexels-photo-971011.jpeg" class="foto-grid"
+               data-bs-toggle="modal" data-bs-target="#modal3"/>
+        </div>
+ 
+        <!-- Foto 4 -->
+        <div class="col-6 col-md-4">
+          <img src="https://images.pexels.com/photos/1430515/pexels-photo-1430515.jpeg" class="foto-grid"
+               data-bs-toggle="modal" data-bs-target="#modal4"/>
+        </div>
+ 
+        <!-- Foto 5 -->
+        <div class="col-6 col-md-4">
+          <img src="https://images.pexels.com/photos/971001/pexels-photo-971001.jpeg" class="foto-grid"
+               data-bs-toggle="modal" data-bs-target="#modal5"/>
+        </div>
+ 
+        <!-- Foto 6 -->
+        <div class="col-6 col-md-4">
+          <img src="https://images.pexels.com/photos/6220213/pexels-photo-6220213.jpeg" class="foto-grid"
+               data-bs-toggle="modal" data-bs-target="#modal6"/>
+        </div>
+ 
+      </div>
+    </div>
+ 
+    <!-- ── VISTA INDIVIDUAL ── -->
+    <div id="view-single">
+ 
+      <!-- Post 1 -->
+      <div class="card mb-4 mx-auto" style="max-width: 600px;">
+        <div class="card-header d-flex justify-content-between">
+          <span class="fw-bold">Greece, Where History Lives</span>
+          <span class="text-muted">01/06</span>
+        </div>
+        <img src="https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg" class="foto-post"
+             data-bs-toggle="modal" data-bs-target="#modal1"/>
+        <div class="card-body">
+          <p class="fw-bold mb-1">1525 Likes</p>
+          <p class="text-muted">Ancient ruins, whitewashed villages, and deep cultural roots.</p>
+        </div>
+      </div>
+ 
+      <!-- Post 2 -->
+      <div class="card mb-4 mx-auto" style="max-width: 600px;">
+        <div class="card-header d-flex justify-content-between">
+          <span class="fw-bold">Greece: A Mediterranean Dream</span>
+          <span class="text-muted">02/06</span>
+        </div>
+        <img src="https://images.pexels.com/photos/2788482/pexels-photo-2788482.jpeg" class="foto-post"
+             data-bs-toggle="modal" data-bs-target="#modal2"/>
+        <div class="card-body">
+          <p class="fw-bold mb-1">1020 Likes</p>
+          <p class="text-muted">Sun-soaked islands, rich culture, and unforgettable coastal views.</p>
+        </div>
+      </div>
+ 
+      <!-- Post 3 -->
+      <div class="card mb-4 mx-auto" style="max-width: 600px;">
+        <div class="card-header d-flex justify-content-between">
+          <span class="fw-bold">Timeless Beauty of Greece</span>
+          <span class="text-muted">03/06</span>
+        </div>
+        <img src="https://images.pexels.com/photos/971011/pexels-photo-971011.jpeg" class="foto-post"
+             data-bs-toggle="modal" data-bs-target="#modal3"/>
+        <div class="card-body">
+          <p class="fw-bold mb-1">2485 Likes</p>
+          <p class="text-muted">Where ancient history meets crystal-clear seas and breathtaking landscapes.</p>
+        </div>
+      </div>
+ 
+      <!-- Post 4 -->
+      <div class="card mb-4 mx-auto" style="max-width: 600px;">
+        <div class="card-header d-flex justify-content-between">
+          <span class="fw-bold">The Magic of Greece</span>
+          <span class="text-muted">04/06</span>
+        </div>
+        <img src="https://images.pexels.com/photos/1430515/pexels-photo-1430515.jpeg" class="foto-post"
+             data-bs-toggle="modal" data-bs-target="#modal4"/>
+        <div class="card-body">
+          <p class="fw-bold mb-1">3255 Likes</p>
+          <p class="text-muted">A land of mythology, stunning beaches, and vibrant traditions.</p>
+        </div>
+      </div>
+ 
+    </div>
+ 
+  </div>
+ 
+  <!-- Modal foto 1 -->
+  <div class="modal fade" id="modal1" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Greece, Where History Lives<small class="text-muted">01/06</small></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg" class="w-100"/>
+        </div>
+        <div class="modal-footer flex-column align-items-start">
+          <p class="fw-bold mb-1">1525 Likes</p>
+          <p class="text-muted mb-0">Ancient ruins, whitewashed villages, and deep cultural roots.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Modal foto 2 -->
+  <div class="modal fade" id="modal2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Greece: A Mediterranean Dream <small class="text-muted">02/06</small></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="https://images.pexels.com/photos/2788482/pexels-photo-2788482.jpeg" class="w-100"/>
+        </div>
+        <div class="modal-footer flex-column align-items-start">
+          <p class="fw-bold mb-1">1020 Likes</p>
+          <p class="text-muted mb-0">Sun-soaked islands, rich culture, and unforgettable coastal views.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Modal foto 3 -->
+  <div class="modal fade" id="modal3" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Timeless Beauty of Greece <small class="text-muted">03/06</small></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="https://images.pexels.com/photos/971011/pexels-photo-971011.jpeg" class="w-100"/>
+        </div>
+        <div class="modal-footer flex-column align-items-start">
+          <p class="fw-bold mb-1">2485 Likes</p>
+          <p class="text-muted mb-0">Where ancient history meets crystal-clear seas and breathtaking landscapes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Modal foto 4 -->
+  <div class="modal fade" id="modal4" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">The Magic of Greece <small class="text-muted">04/06</small></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="https://images.pexels.com/photos/1430515/pexels-photo-1430515.jpeg" class="w-100"/>
+        </div>
+        <div class="modal-footer flex-column align-items-start">
+          <p class="fw-bold mb-1">3255 Likes</p>
+          <p class="text-muted mb-0">A land of mythology, stunning beaches, and vibrant traditions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Modal foto 5 -->
+  <div class="modal fade" id="modal5" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pure Essence of Greece <small class="text-muted">05/06</small></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="https://images.pexels.com/photos/971001/pexels-photo-971001.jpeg" class="w-100"/>
+        </div>
+        <div class="modal-footer flex-column align-items-start">
+          <p class="fw-bold mb-1">995 Likes</p>
+          <p class="text-muted mb-0">Authentic flavors, scenic islands, and a warm, welcoming spirit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Modal foto 6 -->
+  <div class="modal fade" id="modal6" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Endless Charm of Greece <small class="text-muted">06/06</small></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="https://images.pexels.com/photos/6220213/pexels-photo-6220213.jpeg" class="w-100"/>
+        </div>
+        <div class="modal-footer flex-column align-items-start">
+          <p class="fw-bold mb-1">825 Likes</p>
+          <p class="text-muted mb-0">From blue domes to golden sunsets, every corner tells a story.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+ 
+  <!-- ===== MODAL: CREAR POST ===== -->
+  <div class="modal fade" id="newPostModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+ 
+        <div class="modal-header">
+          <h5 class="modal-title">Create a new post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+ 
+        <div class="modal-body">
+          <label class="form-label">Caption:</label>
+          <textarea class="form-control" rows="3" placeholder="Add the caption of your post here"></textarea>
+          <div class="d-flex gap-2 mt-3">
+            <button class="btn btn-outline-secondary">
+              <i class="fas fa-camera"></i>
+            </button>
+            <button class="btn btn-outline-secondary">
+              <i class="fas fa-map-marker-alt"></i>
+            </button>
+          </div>
+        </div>
+ 
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Publish</button>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+ 
+ 
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+ 
+  <script>
+    function showView(vista) {
+      if (vista === "grid") {
+        document.getElementById("view-grid").style.display = "block";
+        document.getElementById("view-single").style.display = "none";
+      } else {
+        document.getElementById("view-grid").style.display = "none";
+        document.getElementById("view-single").style.display = "block";
+      }
+    }
+  </script>
+ 
+</body>
+</html>
